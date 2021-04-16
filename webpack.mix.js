@@ -13,6 +13,12 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/demo.js', 'public/js/demo.js')
+    .js('resources/js/Auth/register.js', 'public/js/auth/register.js')
+    .copy('node_modules/toastr/build/toastr.min.css', 'public/css/toastr.css')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);
+
+if (mix.inProduction()) {
+    mix.version();
+}
